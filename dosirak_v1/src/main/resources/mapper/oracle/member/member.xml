@@ -2,31 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="member">
- <select id = 'checkEmail' resultType='int' parameterType='String'>
- SELECT COUNT(M_ID) as cnt
- FROM d_member
- WHERE email = #{email}
- </select>
 
- <select id = 'checkId' resultType='int' parameterType='String'>
- SELECT COUNT(M_ID) as cnt
- FROM d_member
- WHERE m_id = #{m_id}
- </select>
 
-  <!-- 회원 가입 -->
-  <insert id="create" parameterType="MemberVO">
-    INSERT INTO d_member(m_id, m_no, m_pwd, email, zipcode, address1, address2, m_date, 
-                          auth, confirm, act, dropout)
-    VALUES (#{m_id}, (SELECT NVL(MAX(m_no), 0)+1 as m_no FROM d_member), #{pwd}, #{email}, #{zipcode}, #{address1}, #{address2}, sysdate,
-              #{auth}, #{confirm}, #{act}, #{dropout})
-  </insert>
-  <!-- 관리자 권한 조회 -->
-  <select id="admin_search" resultType="int" parameterType="String">
-      SELECT COUNT(m_no) as cnt
-      FROM d_member
-      WHERE act=#{act}
-  </select>
+<resultMap type="MemberVO" id="sampleList">
+	<result property="userId"         column="USER_ID"         />
+</resultMap>
 
+<select id = 'list' parameterType="MemberVO" resultMap="sampleList">
+ select USER_ID 
+ from SEED_PEOPLE_HDR
+
+</select>
 
 </mapper>

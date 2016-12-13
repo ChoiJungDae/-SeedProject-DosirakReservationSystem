@@ -15,6 +15,5 @@
 
 	<mappers>
 			<mapper resource="/mapper/${Globals.DbType}/member/member.xml"/>
-	
 	</mappers>
 </configuration>

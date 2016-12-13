@@ -11,9 +11,9 @@
 		<!-- <property name="mapperLocations" value="classpath:/mapper/${Globals.DbType}/**/*.xml" /> -->
 	</bean> 
 
-<!-- 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource-${Globals.DbType}" />
-	</bean> -->
+	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>

@@ -29,6 +29,16 @@ public class MemberVO {
   private String act;
   private String dropout;
   
+  private String userId;
+  
+  
+  
+public String getUserId() {
+	return userId;
+}
+public void setUserId(String userId) {
+	this.userId = userId;
+}
 public String getM_id() {
 	return m_id;
 }

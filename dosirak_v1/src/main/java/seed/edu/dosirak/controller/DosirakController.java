@@ -2,6 +2,8 @@ package seed.edu.dosirak.controller;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,16 +18,21 @@ import web.tool.Tool;
 
 @Controller
 public class DosirakController {
- @Autowired 
+	
+/* @Autowired 
  @Qualifier("seed.edu.dosirak.dao.DosirakDAO")
+ private DosirakService memberDAO;*/
+ 
+ @Resource(name="DosirakService")
  private DosirakService memberDAO;
  
- @RequestMapping("index")
+ @RequestMapping(value="/index")
 	 public ModelAndView index(){
 		 ModelAndView mv  = new ModelAndView("index");
 		 return mv;
 	 }
- @RequestMapping(value = "/member/create.do", method = RequestMethod.GET)
+ 
+/* @RequestMapping(value = "/member/create.do", method = RequestMethod.GET)
  public ModelAndView create() {
 	 ModelAndView mav = new ModelAndView();
 	 mav.setViewName("/member/create");
@@ -44,44 +51,44 @@ public class DosirakController {
  
    
    
-// ±ÇÇÑ, ÀÎÁõ Ãß°¡ ---------------------------------------------------------    
+// ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ---------------------------------------------------------    
     memberVO.setAuth(Tool.key()); // ABC012345678901234
     memberVO.setDropout("N");
      
-    if (memberDAO.admin_search("M") == 0){ // ÄÃ·³¸í, ¸¶½ºÅÍ °èÁ¤
-      msgs.add("ÃÖÃÊ µî·Ï °èÁ¤ÀÓÀ¸·Î Master °èÁ¤ÀÔ´Ï´Ù.<br><br>");
-      memberVO.setAct("M");  // ÃÖ°í °ü¸®ÀÚ ÁöÁ¤
-      memberVO.setConfirm("Y"); //  ÃÖ°í °ü¸®ÀÚÀÓÀ¸·Î ¸ÞÀÏ È®ÀÎ Ã³¸®
+    if (memberDAO.admin_search("M") == 0){ // ï¿½Ã·ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+      msgs.add("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Master ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.<br><br>");
+      memberVO.setAct("M");  // ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+      memberVO.setConfirm("Y"); //  ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ Ã³ï¿½ï¿½
     }else{
-      memberVO.setAct("H");  // °ü¸®ÀÚ°¡ ½ÂÀÎÀÌ ÇÊ¿äÇÔ, H: hold.
-      memberVO.setConfirm("N"); // ¸ÞÀÏ È®ÀÎ ¾ÈµÊ, °¡ÀÔÀÚ°¡ ¸ÞÀÏ È®ÀÎ ¾ÈÇÔ. 
+      memberVO.setAct("H");  // ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½, H: hold.
+      memberVO.setConfirm("N"); // ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Èµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 
     }
     // ---------------------------------------------------------     
- // ºñ¹Ð¹øÈ£ ¾ÏÈ£È­
+ // ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½È£È­
  // ---------------------------------------------------------     
-     System.out.println("ºñ¹Ð¹øÈ£ ¾ÏÈ£È­ Àü: "+memberVO.getM_id());
+     System.out.println("ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½È£È­ ï¿½ï¿½: "+memberVO.getM_id());
      
      AES256Util aes256 = new AES256Util();
      String encrypt_pwd = aes256.aesEncode(memberVO.getM_id());
      memberVO.setM_id(new String(encrypt_pwd));
-     System.out.println("ºñ¹Ð¹øÈ£ ¾ÏÈ£È­ ÈÄ"+memberVO.getM_id());
+     System.out.println("ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½È£È­ ï¿½ï¿½"+memberVO.getM_id());
  // ---------------------------------------------------------     
      if (memberDAO.create(memberVO) == 1) {
-       msgs.add("È¸¿ø°¡ÀÔÀÌ Ã³¸® µÇ¾ú½À´Ï´Ù.");
-       msgs.add("°¡ÀÔÇØÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù.");
-       msgs.add("ÀÌ¸ÞÀÏ ÀÎÁõ ½Ã ·Î±×ÀÎÀÌ °¡´ÉÇÕ´Ï´Ù.");
-       links.add("<button type='button' onclick=\"location.href='../index.jsp'\">È¨ÆäÀÌÁö</button>");
+       msgs.add("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
+       msgs.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼Å¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
+       msgs.add("ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.");
+       links.add("<button type='button' onclick=\"location.href='../index.jsp'\">È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</button>");
      } else {
-       msgs.add("È¸¿ø °¡ÀÔ¿¡ ½ÇÆÐÇß½À´Ï´Ù.");
-       msgs.add("ÁË¼ÛÇÏÁö¸¸ ´Ù½ÃÇÑ¹ø ½ÃµµÇØÁÖ¼¼¿ä.");
-       links.add("<button type='button' onclick=\"history.back()\">´Ù½Ã½Ãµµ</button>");
-       links.add("<button type='button' onclick=\"location.href='../index.jsp'\">È¨ÆäÀÌÁö</button>");
+       msgs.add("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
+       msgs.add("ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ï¿½Ñ¹ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.");
+       links.add("<button type='button' onclick=\"history.back()\">ï¿½Ù½Ã½Ãµï¿½</button>");
+       links.add("<button type='button' onclick=\"location.href='../index.jsp'\">È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</button>");
      }
   
      mav.addObject("msgs", msgs);
      mav.addObject("links", links);
   
      return mav;
-   }
+   }*/
  
 }
