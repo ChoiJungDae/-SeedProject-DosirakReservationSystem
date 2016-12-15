@@ -26,7 +26,7 @@ public class DosirakController {
  @Resource(name="DosirakService")
  private DosirakService memberDAO;
  
- @RequestMapping(value="/dosirak/index.do")
+ @RequestMapping(value="/index.do")
 	 public ModelAndView index(){
 
 	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______스프링 버젼 확인____");
