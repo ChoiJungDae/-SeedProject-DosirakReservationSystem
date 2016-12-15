@@ -28,6 +28,7 @@ public class DosirakController {
  
  @RequestMapping(value="/index.do")
 	 public ModelAndView index(){
+<<<<<<< HEAD
 		 ModelAndView mv  = new ModelAndView("index");
 		 return mv;
 	 }
@@ -42,10 +43,20 @@ public class DosirakController {
  public ModelAndView create() {
 	 ModelAndView mav = new ModelAndView();
 	 mav.setViewName("/member/create");
+=======
+
+	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______스프링 버젼 확인____");
+	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______스프링 버젼 확인____");
+	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______스프링 버젼 확인____");
+		 
+	 ModelAndView mv  = new ModelAndView("index");
+	
+	 return mv;
+>>>>>>> 65305da7ca707941c1157ef5ac9b555bf2e85d51
 	 
-	 return mav;
  }
 
+<<<<<<< HEAD
  @RequestMapping(value = "/member/create.do", method = RequestMethod.POST)
  public ModelAndView create(MemberVO memberVO ) throws Exception {
    System.out.println("--> create() POST called.");
@@ -97,4 +108,6 @@ public class DosirakController {
      return mav;
    }*/
  
+=======
+>>>>>>> 65305da7ca707941c1157ef5ac9b555bf2e85d51
 }
