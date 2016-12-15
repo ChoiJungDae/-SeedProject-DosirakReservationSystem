@@ -28,7 +28,6 @@ public class DosirakController {
  
  @RequestMapping(value="/index.do")
 	 public ModelAndView index(){
-<<<<<<< HEAD
 		 ModelAndView mv  = new ModelAndView("index");
 		 return mv;
 	 }
