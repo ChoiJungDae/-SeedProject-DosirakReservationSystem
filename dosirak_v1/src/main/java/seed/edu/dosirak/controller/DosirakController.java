@@ -1,20 +1,12 @@
 package seed.edu.dosirak.controller;
 
-import java.util.ArrayList;
-
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import seed.edu.dosirak.service.DosirakService;
-import seed.edu.dosirak.vo.MemberVO;
-import web.tool.AES256Util;
-import web.tool.Tool;
 
 @Controller
 public class DosirakController {
@@ -107,7 +99,5 @@ public class DosirakController {
   
      return mav;
    }*/
- 
-=======
->>>>>>> 65305da7ca707941c1157ef5ac9b555bf2e85d51
+
 }
