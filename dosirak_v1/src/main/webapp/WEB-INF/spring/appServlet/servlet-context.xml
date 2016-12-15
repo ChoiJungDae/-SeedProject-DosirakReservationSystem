@@ -27,7 +27,7 @@
    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
       p:order="0" />
 
-
+	<!-- tiles tilesViewResolver , TilesConfigurer은 스프링 3.2이상에서만..  -->
    <bean
       class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name="prefix" value="/WEB-INF/views/" />
@@ -35,8 +35,8 @@
       <property name="suffix" value=".jsp" />
    </bean>
 
-   <bean id="jacksonMessageConverter"
+   <!-- <bean id="jacksonMessageConverter"
       class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
-   <context:component-scan base-package="seed" />
+   <context:component-scan base-package="seed" /> -->
 
 </beans>
