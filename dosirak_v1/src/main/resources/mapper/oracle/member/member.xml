@@ -3,7 +3,6 @@
 
 <mapper namespace="member">
 
-
 <resultMap type="MemberVO" id="sampleList">
 	<result property="userId"         column="USER_ID"         />
 </resultMap>
@@ -11,7 +10,8 @@
 <select id = 'list' parameterType="MemberVO" resultMap="sampleList">
  select USER_ID 
  from SEED_PEOPLE_HDR
-
 </select>
+
+
 
 </mapper>

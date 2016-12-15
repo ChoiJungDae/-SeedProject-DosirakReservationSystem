@@ -29,10 +29,6 @@ public class DosirakController {
  @RequestMapping(value="/index.do")
 	 public ModelAndView index(){
 
-	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______스프링 버젼 확인____");
-	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______스프링 버젼 확인____");
-	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______스프링 버젼 확인____");
-		 
 	 ModelAndView mv  = new ModelAndView("index");
 	
 	 return mv;
