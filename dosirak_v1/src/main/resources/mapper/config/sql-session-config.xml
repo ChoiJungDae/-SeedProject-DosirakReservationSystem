@@ -10,7 +10,6 @@
 
 	<typeAliases>
 			<typeAlias alias="MemberVO" type="seed.edu.dosirak.vo.MemberVO"/>
-	
 	</typeAliases>
 
 	<mappers>

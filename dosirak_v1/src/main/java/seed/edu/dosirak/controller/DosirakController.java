@@ -28,6 +28,7 @@ public class DosirakController {
  
  @RequestMapping(value="/index.do")
 	 public ModelAndView index(){
+
 		 ModelAndView mv  = new ModelAndView("index");
 		 return mv;
 	 }
@@ -44,9 +45,9 @@ public class DosirakController {
 	 mav.setViewName("/member/create");
 =======
 
-	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______½ºÇÁ¸µ ¹öÁ¯ È®ÀÎ____");
-	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______½ºÇÁ¸µ ¹öÁ¯ È®ÀÎ____");
-	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______½ºÇÁ¸µ ¹öÁ¯ È®ÀÎ____");
+	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½____");
+	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½____");
+	 System.out.println( org.springframework.core.SpringVersion.getVersion() +"_______ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½____");
 		 
 	 ModelAndView mv  = new ModelAndView("index");
 	

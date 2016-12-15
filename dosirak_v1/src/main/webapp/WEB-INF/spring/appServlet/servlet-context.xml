@@ -37,6 +37,7 @@
 
    <!-- <bean id="jacksonMessageConverter"
       class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />-->
-   <context:component-scan base-package="seed" />
+   
+   <context:component-scan base-package="seed"/>
 
 </beans>
