@@ -27,7 +27,7 @@ public class DosirakController {
  
  @RequestMapping(value="/hello.do")
  public ModelAndView hello(){
-	 ModelAndView mv  = new ModelAndView("jsp/hello");
+	 ModelAndView mv  = new ModelAndView("/jsp/hello");
 	 return mv;
  }
  
